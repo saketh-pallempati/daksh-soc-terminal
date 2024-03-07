@@ -4,9 +4,12 @@ import axios from 'axios';
 axios.defaults.withCredentials = true;
 
 export const whoami = async (args: string[]): Promise<string> => {
-  const response = await axios.get('http://localhost:3000/verify', {
-    withCredentials: true,
-  });
+  const response = await axios.get(
+    'https://daksh-soc-backend.vercel.app/verify',
+    {
+      withCredentials: true,
+    },
+  );
   if (response.data.user) {
     return response.data.user.username;
   }
@@ -19,7 +22,7 @@ export const message = async (args: string[]): Promise<string> => {
     return 'Usage: message [message]. Example: message "Need help with something!"';
   }
   const response = await axios.post(
-    'http://localhost:3000/game/message',
+    'https://daksh-soc-backend.vercel.app/game/message',
     {
       message: msg,
     },
@@ -34,7 +37,7 @@ export const submit = async (args: string[]): Promise<string> => {
     return 'Usage: submit [Vulnerability]. Example: submit unfunctional button at the left corner of the page';
   }
   const response = await axios.post(
-    'http://localhost:3000/game/check',
+    'https://daksh-soc-backend.vercel.app/game/check',
     {
       comment: comment,
     },
@@ -58,7 +61,7 @@ export const login = async (args: string[]): Promise<string> => {
       return 'admin likes php !!!';
     }
     const response = await axios.post(
-      'http://localhost:3000/login',
+      'https://daksh-soc-backend.vercel.app/login',
       {
         email: email,
         password: password,
