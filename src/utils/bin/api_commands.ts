@@ -51,9 +51,12 @@ export const login = async (args: string[]): Promise<string> => {
   const email = args[0];
   const password = args[1];
   if (!email || !password) {
-    return 'Usage: login [email] [password]';
+    return 'Usage: login [email] [password] {KALI}';
   }
   try {
+    if (email === 'kali' && password === 'kali') {
+      return 'admin likes php !!!';
+    }
     const response = await axios.post(
       'http://localhost:3000/login',
       {

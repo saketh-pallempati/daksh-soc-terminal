@@ -21,22 +21,14 @@ export const help = async (args: string[]): Promise<string> => {
 `;
 };
 
-
-
-
 // Typical linux commands
 export const echo = async (args: string[]): Promise<string> => {
   return args.join(' ');
 };
 
-
-// export const ls = async (args: string[]): Promise<string> => {
-//   return `a
-// bunch
-// of
-// fake
-// directories`;
-// };
+export const ls = async (args: string[]): Promise<string> => {
+  return `bin  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var`;
+};
 
 export const cd = async (args: string[]): Promise<string> => {
   return `unfortunately, i cannot afford more directories.`;
@@ -63,10 +55,14 @@ export const emacs = async (args?: string[]): Promise<string> => {
 };
 
 export const sudo = async (args?: string[]): Promise<string> => {
-  window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank'); 
-  return `Permission denied: with little power comes... no responsibility? 😝`;
+  setTimeout(
+    () => window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank'),
+    0,
+  );
+  return `Permission denied: 😝 
+But here is a pro tip...
+Sun Tzu: To banish your files to the shadow realm with no hope of return, wield the mighty shortcut that can permanently delete files it\'s the silent assassin of the upcoming war ⚠️`;
 };
-
 // Banner
 export const banner = (args?: string[]): string => {
   return `
