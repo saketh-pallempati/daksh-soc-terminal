@@ -4,13 +4,17 @@ import axios from 'axios';
 axios.defaults.withCredentials = true;
 
 export const whoami = async (args: string[]): Promise<string> => {
-  const response = await axios.get(
-    'https://daksh-soc-backend.vercel.app/verify',
-  );
-  if (response.data.user) {
-    return response.data.user.username;
+  try {
+    const response = await axios.get(
+      'https://daksh-soc-backend.vercel.app/verify',
+    );
+    if (response.data.user) {
+      return response.data.user.username;
+    }
+    return `Login to find out 😉`;
+  } catch (error) {
+    return error.toString();
   }
-  return `Login to find out 😉`;
 };
 
 export const message = async (args: string[]): Promise<string> => {
@@ -42,6 +46,9 @@ export const login = async (args: string[]): Promise<string> => {
       {
         email: email,
         password: password,
+      },
+      {
+        withCredentials: false,
       },
     );
 

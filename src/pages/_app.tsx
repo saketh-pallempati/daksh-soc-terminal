@@ -8,6 +8,7 @@ const App = ({ Component, pageProps }) => {
   const onClickAnywhere = () => {
     inputRef.current.focus();
   };
+  
 
   return (
     <>
