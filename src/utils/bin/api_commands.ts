@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 // List of commands that require API calls
 
 import axios from 'axios';
@@ -13,6 +14,7 @@ export const whoami = async (args: string[]): Promise<string> => {
     }
     return `Login to find out 😉`;
   } catch (error) {
+    console.log(error);
     return error.toString();
   }
 };
@@ -47,9 +49,6 @@ export const login = async (args: string[]): Promise<string> => {
         email: email,
         password: password,
       },
-      {
-        withCredentials: false,
-      },
     );
 
     if (response.data.status === true) {
@@ -58,6 +57,7 @@ export const login = async (args: string[]): Promise<string> => {
       return response.data.message;
     }
   } catch (error) {
+    console.log(error);
     return error.toString();
   }
 };
